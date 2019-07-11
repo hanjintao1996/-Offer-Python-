@@ -1,0 +1,26 @@
+定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。
+
+思路：新建一个与stack等大的辅助栈，记录最小值。把每次的最小元素（之前的最小元素和新入栈的元素之间的较小值）都保存起来存入另一个辅助栈。
+
+    def __init__(self):
+        self.stack = []
+        self.assist = []
+    def push(self,node):
+        min1 = self.min()
+        if not min1 or min1>node:
+            self.stack.append(node)
+            self.assist.append(node)
+        else:
+            self.stack.append(node)
+            self.assist.append(min1)
+    def pop(self):
+        if self.stack:
+            self.stack.pop()
+            self.assist.pop() 
+    def top(self):
+        if self.stack:
+            return self.stack[-1]  
+    def min(self):
+        if self.assist:
+            return self.assist[-1]
+        
