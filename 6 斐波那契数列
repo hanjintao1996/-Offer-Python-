@@ -1,0 +1,18 @@
+大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。
+
+思路：递归的典型应用，但是会出现运行超时的情况
+
+        if n ==0: #递归超时
+            return 0          
+        elif n ==1 or n ==2:
+            return 1
+        return self.Fibonacci(n-1)+self.Fibonacci(n-2)
+
+思路2：采用循环生成的方法，不断的往res增加下一项
+ 
+        res = [0,1,1]
+        j = 1
+        while n>j:
+            res.append(res[j]+res[j+1])
+            j = j+1
+        return res[n]
