@@ -1,0 +1,23 @@
+# -*- coding:utf-8 -*-
+class Solution:
+    def Find(self, target, array):
+        if not array:
+            return False
+        if not array[0]:
+            return False
+        lenth = len(array[0])
+        for i in range(len(array)):
+            if target == array[i][0]:
+                return True
+            elif i<len(array)-1 and target <= array[i+1][lenth-1] and target >= array[i][0]:
+                for j in array[i]:
+                    if j == target:
+                        return True
+                for j in array[i+1]:
+                    if j == target:
+                        return True
+            elif i == len(array):
+                for j in array[i-1]:
+                    if j == target:
+                        return True
+        return False
