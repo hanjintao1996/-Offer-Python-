@@ -1,0 +1,15 @@
+输入一个链表，反转链表后，输出新链表的表头。
+
+思路：三个指针，分别是P，P前，P后，尤其注意要有P后来保存下一个值。
+
+        if not pHead:
+            return None
+        last = None
+        p1 = pHead
+        while p1:
+            pnext = p1.next
+            p1.next = last
+            last = p1
+            p1 = pnext
+            
+        return last
