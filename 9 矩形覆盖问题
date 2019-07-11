@@ -1,0 +1,15 @@
+我们可以用2*1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2*1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？
+
+思路分析：依旧是斐波那契数列，如果竖向放置，则规模为number-1，若横向填充，则规模为number-2
+
+# -*- coding:utf-8 -*-
+class Solution:
+    def rectCover(self, number):
+        if not number:
+            return 0
+        res = [0,1,2]
+        j = 1
+        while j<number:
+            res.append(res[j]+res[j+1])
+            j = j+1
+        return res[number]
