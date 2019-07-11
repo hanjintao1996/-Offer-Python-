@@ -1,0 +1,16 @@
+ 输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。
+ 
+ 思路：遍历链表，用一个栈去存储它，之后pop即可得到反向的链表
+ 
+ def printListFromTailToHead(self, listNode):
+        if not listNode:
+            return []
+        p1 = listNode
+        res = []
+        out = []
+        while p1:
+            res.append(p1.val)
+            p1 = p1.next
+        while res:
+            out.append(res.pop())
+        return out
