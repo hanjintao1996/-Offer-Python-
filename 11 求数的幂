@@ -1,0 +1,17 @@
+给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方
+
+思路：主要考察各种异常输入处理与分类讨论
+
+if exponent>=0:
+            res = 1
+            for i in range(exponent):
+                res = res*base
+            return res
+        elif exponent < 0 and base ==0:
+            return None
+        else:
+            res = 1
+            for i in range(abs(exponent)):
+                res = res*base
+            res = 1/res
+            return res
