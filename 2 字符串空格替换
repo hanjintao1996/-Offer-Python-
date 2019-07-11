@@ -1,0 +1,13 @@
+请实现一个函数，将一个字符串中的每个空格替换成“%20”。
+例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
+
+思路分析：利用Python中自带的split函数，将s切分成list，再利用join函数将List连接成字符串。
+
+def replaceSpace(self, s):
+        s = s.split(' ')   #此时s变为list
+        strs = '%20'.join(s)   #list变为字符串       
+        return strs
+
+思路2：
+由于是一个字符变为三个字符，因此每个空格都要将str往后移动两位腾出空间，因此时间复杂度高。
+书中采用的先统计空格数目，确定总长度，之后两个指针向前移动。
