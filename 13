@@ -1,0 +1,31 @@
+输入一个链表，输出该链表中倒数第k个结点
+
+思路：顺序遍历链表并存储在res中，最后判断输出，注意输出的是结点而不是val
+
+if not head or not k:
+            return None
+        res = []
+        p1 = head
+        while p1:
+            res.append(p1)
+            p1 = p1.next
+        if k <= len(res):
+            return res[-k]
+        else:
+            return None
+
+思路2： 快慢指针法。一指针先走K步，然后再一起行进。
+
+if not head or not k:
+            return None
+        p1 = head
+        p2 = head
+        for i in range(k):
+            if p1:
+                p1 = p1.next 
+            else:
+                return None
+        while p1:
+            p1 = p1.next
+            p2 = p2.next
+        return p2
